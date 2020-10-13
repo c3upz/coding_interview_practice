@@ -11,15 +11,20 @@
 //digits of  n taken to the successive powers of p is equal to k * n
 //(eg. "695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2")
 
+//testing commit
+
 // Original solution
-function digPow(n, p){
-  numArr = (""+n).split("");
+function digPow(n, p) {
+  numArr = ("" + n).split("");
   let temp = 0;
-  numArr.forEach(function(x){temp += Math.pow(x, p); p++;});
-  
-  if(temp % n == 0){
+  numArr.forEach(function (x) {
+    temp += Math.pow(x, p);
+    p++;
+  });
+
+  if (temp % n == 0) {
     return temp / n;
-  }else{
+  } else {
     return -1;
   }
 }
@@ -30,10 +35,10 @@ digPow(46288, 3); // should return 51
 
 
 // Better solution
-function digPow2(n, p){
-    //either of the assignment statements below will work
-    //let x = String(n).split("").reduce((s,d,i) => s + Math.pow(d, p + i), 0);
-    let x = Array.prototype.reduce.call(String(n), (s, d, i) => s + Math.pow(d, p + i), 0);
-    return x % n ? -1 : x / n;
+function digPow2(n, p) {
+  //either of the assignment statements below will work
+  //let x = String(n).split("").reduce((s,d,i) => s + Math.pow(d, p + i), 0);
+  let x = Array.prototype.reduce.call(String(n), (s, d, i) => s + Math.pow(d, p + i), 0);
+  return x % n ? -1 : x / n;
 }
 //Why is this better?
